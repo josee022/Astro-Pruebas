@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const { id } = Astro.params;
+
+// Simula datos de servicios para mostrar
+const servicios = {
+  "1": { titulo: "Bano Completo", descripcion: "Cuidado completo para tu mascota." },
+  "2": { titulo: "Corte de Unas", descripcion: "Servicio profesional de corte de unas." },
+  "3": { titulo: "Masajes Relajantes", descripcion: "Relajacion total para tu mascota." }
+};
+
+const servicio = servicios[id];
+---
+
+<BaseLayout title={servicio.titulo} slogan="Lo mejor para tu mascota">
+  <section class="py-10 px-5 bg-white">
+    <h2 class="text-2xl font-semibold text-center mb-6">{servicio.titulo}</h2>
+    <p class="text-center">{servicio.descripcion}</p>
+  </section>
+</BaseLayout>

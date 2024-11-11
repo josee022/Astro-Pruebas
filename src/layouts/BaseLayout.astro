@@ -1,0 +1,36 @@
+---
+const { title, slogan } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <header class="text-center py-10 bg-blue-500 text-white">
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl font-bold">{title}</h1>
+    <p class="mt-2 text-lg">{slogan}</p>
+    <nav class="mt-4">
+  <a href="/" class="mx-4 text-white hover:underline">Inicio</a>
+  <a href="/servicios" class="mx-4 text-white hover:underline">Servicios</a>
+  <a href="/contacto" class="mx-4 text-white hover:underline">Contacto</a>
+  <a href="/blog" class="mx-4 text-white hover:underline">Blog</a>
+</nav>
+    <img src="/imagenes/perro-spa.jpg" alt="Perro en spa" class="w-full h-64 object-cover rounded-lg shadow-lg mt-5">
+  </div>
+</header>
+    <main>
+      <slot /> <!-- Aqui se insertara el contenido especifico de cada pagina -->
+    </main>
+    <footer class="text-center py-4 bg-gray-200 text-sm">
+  © 2024 Spa Canino - Todos los derechos reservados.
+  <div class="mt-2">
+    <a href="https://facebook.com" target="_blank" class="mx-2 text-blue-600 hover:underline">Facebook</a>
+    <a href="https://instagram.com" target="_blank" class="mx-2 text-pink-500 hover:underline">Instagram</a>
+    <a href="https://twitter.com" target="_blank" class="mx-2 text-blue-400 hover:underline">Twitter</a>
+  </div>
+</footer>
+
+  </body>
+</html>

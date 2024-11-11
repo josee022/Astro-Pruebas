@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Servicio from '../components/Servicio.astro';
+
+const title = "Nuestros Servicios";
+const slogan = "Lo mejor para tu mascota";
+---
+
+<BaseLayout {title} {slogan}>
+  <section class="py-10 px-5 bg-white">
+    <h2 class="text-2xl font-semibold text-center mb-6">Todos los Servicios</h2>
+    <p class="text-center">Explora nuestra gama completa de servicios.</p>
+    <div class="flex flex-col md:flex-row gap-5 justify-center mt-5">
+      <!-- Reutilizamos el componente Servicio -->
+      <Servicio titulo="Bano Completo" descripcion="El mejor cuidado para tu mascota." imagen="/imagenes/servicio-bano-corte.jpg" />
+      <Servicio titulo="Corte de Unas" descripcion="Servicio seguro y profesional." imagen="/imagenes/servicio-corte-unas.jpg" />
+      <Servicio titulo="Masajes Antiestres" descripcion="Relaja a tu mascota." imagen="/imagenes/servicio-masaje.jpg" />
+    </div>
+  </section>
+</BaseLayout>

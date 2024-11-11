@@ -1,0 +1,9 @@
+---
+const { nombre, comentario, imagen } = Astro.props;
+---
+
+<div class="p-4 bg-gray-100 rounded-lg shadow-md max-w-xs text-center">
+  <img src={imagen} alt={nombre} class="w-16 h-16 rounded-full mx-auto mb-4">
+  <p class="text-lg font-semibold">{nombre}</p>
+  <p class="text-sm text-gray-700 mt-2">"{comentario}"</p>
+</div>

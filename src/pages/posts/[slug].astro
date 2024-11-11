@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Funcion getStaticPaths para definir las rutas estaticas
+export async function getStaticPaths() {
+  const allPosts = import.meta.glob('../../content/posts/*.md', { eager: true });
+  return Object.values(allPosts).map((post) => ({
+    params: { slug: post.frontmatter.slug },
+  }));
+}
+
+// Obtiene el parametro slug de la URL
+const { slug } = Astro.params;
+const allPosts = import.meta.glob('../../content/posts/*.md', { eager: true });
+const post = Object.values(allPosts).find((p) => p.frontmatter.slug === slug);
+
+if (!post) {
+  throw new Error(`Post no encontrado: ${slug}`);
+}
+---
+
+<BaseLayout title={post.frontmatter.title} slogan="Blog de Cuidado de Mascotas">
+  <section class="py-10 px-5 bg-white text-center">
+    <h2 class="text-4xl font-bold text-blue-700 mb-4">{post.frontmatter.title}</h2>
+    <p class="text-base text-gray-600 italic mb-8">{post.frontmatter.date}</p>
+    <article class="mt-8 prose prose-lg prose-blue mx-auto text-gray-800 leading-relaxed" set:html={post.compiledContent()}>
+      <!-- Renderiza el contenido del Markdown como HTML -->
+    </article>
+  </section>
+</BaseLayout>
